@@ -28,6 +28,29 @@ const Home = () => {
     }
   };
 
+  const redirectToInstagram = () => {
+    const isMobile =
+      /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(
+        navigator.userAgent,
+      );
+    if (isMobile) {
+      window.location.href = "instagram://user?username=lifutmeta";
+      setTimeout(() => {
+        window.open(
+          "https://www.instagram.com/lifutmeta/?hl=es",
+          "_blank",
+          "noopener,noreferrer",
+        );
+      }, 500);
+    } else {
+      window.open(
+        "https://www.instagram.com/lifutmeta/?hl=es",
+        "_blank",
+        "noopener,noreferrer",
+      );
+    }
+  };
+
   return (
     <div className="flex flex-col p-5 sm:p-10 bg-emerald-50 h-dvh overflow-y-auto">
       <div className="bg-white rounded-2xl w-full grid grid-cols-3 shadow-xl shadow-emerald-500/20 flex-1">
@@ -55,12 +78,20 @@ const Home = () => {
             partido. Mientras tanto, síguenos en Facebook y mantente al tanto de
             todas las novedades de la liga.
           </p>
-          <button
-            onClick={redirectToFacebook}
-            className="bg-emerald-800 text-white px-6 py-3 rounded-lg hover:bg-emerald-900 transition-colors duration-300 cursor-pointer text-sm sm:text-base"
-          >
-            Visítanos en Facebook
-          </button>
+          <div className="grid sm:grid-cols-2 gap-2">
+            <button
+              onClick={redirectToFacebook}
+              className="bg-emerald-800 text-white px-6 py-3 rounded-lg hover:bg-emerald-900 transition-colors duration-300 cursor-pointer text-sm sm:text-base"
+            >
+              Visítanos en Facebook
+            </button>
+            <button
+              onClick={redirectToInstagram}
+              className="border border-emerald-800 text-emerald-800 px-6 py-3 rounded-lg hover:bg-emerald-900 hover:text-white transition-colors duration-300 cursor-pointer text-sm sm:text-base"
+            >
+              Visítanos en Instagram
+            </button>
+          </div>
         </div>
       </div>
       <footer className="px-6 sm:px-10 pt-10 flex items-center justify-between text-center mx-auto">
