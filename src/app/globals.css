@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
@@ -11,5 +9,6 @@
   --font-display: "Poppins", "sans-serif";
   --color-main: #424242;
   --color-secondary: #2da63f;
-
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
